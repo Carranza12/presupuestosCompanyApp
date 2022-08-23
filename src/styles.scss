@@ -1,1 +1,266 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css5?family=Poppins&display=swap"); //font-family: 'Poppins', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap"); //font-family: 'Roboto Condensed', sans-serif;
+body {
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+* {
+  font-family: "Roboto Condensed", sans-serif;
+}
+.h1_primary {
+  text-align: center;
+  width: 100%;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: rgb(15 23 42 / var(--tw-text-opacity));
+}
+.ng_input {
+  width: 300px;
+  height: 40px;
+  outline: none;
+  font-size: 16px;
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+  color: gray;
+  border: 0.25px solid gray;
+  border-radius: 15px;
+  @media (max-with: 900px) {
+    width: 200px;
+  }
+}
+.ng_button {
+  width: 300px;
+  height: 42px;
+  background-color: black;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 15px;
+}
+.btn_primary {
+  cursor: pointer;
+  width: 150px;
+  height: 30px;
+  background-color: orangered;
+  color: #fff;
+  border-radius: 13px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.error-alert {
+  color: red;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding: 5px 0px 10px 10px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  .page {
+    display: flex;
+    flex-direction: row;
+    .container-page {
+      width: calc(100vw - 150px);
+      height: calc(100% - 40px);
+      @media (max-width: 900px) {
+        width: calc(100vw - 40px);
+      }
+    }
+  }
+}
+.content {
+  margin: 15px;
+  padding: 10px;
+}
+.mat-container {
+  display: flex;
+  flex-wrap: wrap;
+  mat-card {
+    max-width: auto;
+    padding: 10px!important;
+  }
+}
+
+.h-card-detail {
+  flex-wrap: wrap;
+  border-radius: 15px;
+  background-color: rgb(204, 150, 0);
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px 20px 40px;
+  align-items: center;
+  @media (max-width: 588px) {
+    justify-content: center;
+  }
+  .title h1 {
+    font-size: 30px;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+  }
+  .download {
+    display: flex;
+    @media (max-width: 588px) {
+      margin-top: 20px;
+    }
+    img {
+      width: 40px;
+      height: 40px;
+      padding: 10px;
+    }
+    a {
+      padding: 10px;
+      background-color: black;
+      border-radius: 20px;
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+.b-card-detail {
+  background-color: #faf7f4;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px 10px 20px;
+  margin: 10px 0px 10px 0px;
+  .info {
+    p span {
+      font-family: "Poppins", sans-serif;
+      font-size: 18px;
+      font-weight: 200;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.b-card-detail-list {
+  background-color: #faf7f4;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px 10px 20px;
+  margin: 10px 0px 10px 0px;
+  .item {
+    strong {
+      font-size: 20px !important;
+    }
+    p {
+      font-size: 16px;
+      font-family: "Poppins", sans-serif;
+    }
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 710px) {
+    display: none !important;
+  }
+}
+
+.b-card-detail-list-mobile {
+  display: none;
+  background-color: #faf7f4;
+  @media (max-width: 710px) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-radius: 15px;
+    color: rgb(0, 0, 0);
+    margin: 10px 0px 10px 0px;
+    justify-content: center;
+    padding: 30px 0px 30px 0px;
+    @media (max-width: 440px) {
+      padding: 15px 0px 15px 0px;
+    }
+    text-align: center;
+    align-items: center;
+    .item {
+      strong {
+        font-size: 20px !important;
+        @media (max-width: 440px) {
+          font-size: 15px !important;
+        }
+      }
+      p {
+        font-size: 16px;
+        @media (max-width: 440px) {
+          font-size: 14px;
+        }
+        font-family: "Poppins", sans-serif;
+      }
+      .info {
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+.b-card-detail-total {
+  background-color: #faf7f4;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 30px;
+  border-radius: 15px;
+  color: rgb(0, 0, 0);
+  margin: 10px 0px 10px 0px;
+  justify-content: center;
+  padding: 20px;
+  @media (max-width: 710px) {
+    align-items: center;
+  }
+  .item {
+    strong {
+      font-size: 20px !important;
+      @media (max-width: 440px) {
+        font-size: 15px !important;
+      }
+    }
+    p {
+      font-size: 16px;
+      padding: 0;
+      margin: 0;
+      @media (max-width: 440px) {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.ng-input-mobile{
+  @media(max-width:464px){
+    width: 100%!important;
+  }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

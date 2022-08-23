@@ -1,0 +1,625 @@
+<main>
+  <div>
+    <app-header></app-header>
+  </div>
+  <div class="page">
+    <app-aside></app-aside>
+    <div class="container-page">
+      <app-subheader [title]="'Presupuestos'"></app-subheader>
+      <div class="content">
+        <div class="h-card-detail">
+          <div class="title">
+            <h1>Visualiza tu <br />Presupuesto</h1>
+          </div>
+          <div class="download">
+            <a (click)="generatePDF()">
+              <img
+                src="../../../../../assets/icons/download-cloud.svg"
+                alt=""
+              />
+              Descargar presupuesto
+            </a>
+          </div>
+        </div>
+        <div class="b-card-detail">
+          <div class="info">
+            <p  *ngIf="presupuesto.name">
+              <span
+                ><strong>Nombre del cliente: </strong
+                >{{ presupuesto.name }}</span
+              ><br />
+              <span
+                ><strong>Fecha: </strong>{{ presupuesto.createAt | date }}</span
+              ><br />
+              <span><strong>Dirección: </strong>{{ presupuesto.address }}</span
+              ><br />
+              <span
+                ><strong>Correo del cliente: </strong
+                >{{ presupuesto.email }}</span
+              ><br />
+              <span><strong>Asunto: </strong>{{ presupuesto.Asunto }}</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="b-card-detail-list">
+          <div class="item" *ngFor="let item of presupuesto.actividades">
+            <p><strong>Actividad</strong><br />{{ item.description }}</p>
+            <p>
+              <strong>Cantidad </strong><br />{{ item.cantidad }}
+              {{ item.unidad }}
+            </p>
+            <p>
+              <strong>Precio unitario</strong><br />
+              {{ item.precioUnitario | currency }}
+            </p>
+            <p>
+              <strong>subtotal</strong><br />
+              {{ item.subTotal | currency }}
+            </p>
+          </div>
+        </div>
+
+        <div class="b-card-detail-list-mobile">
+          <div class="item" *ngFor="let item of presupuesto.actividades">
+            <div>
+              <p><strong>Actividad</strong><br />{{ item.description }}</p>
+            </div>
+            <div class="d-flex info">
+              <p>
+                <strong>Cantidad </strong><br />{{ item.cantidad }}
+                {{ item.unidad }}
+              </p>
+              <p>
+                <strong>Precio unitario</strong><br />
+                {{ item.precioUnitario | currency }}
+              </p>
+              <p>
+                <strong>subtotal</strong><br />
+                {{ item.subTotal | currency }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="b-card-detail-total">
+          <div class="item">
+            <p><strong>Total: </strong>{{ presupuesto.total | currency }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="table" id="pdf" *ngIf="presupuesto">
+  <section style="margin-top: 30; padding-top: 30px; margin: 0 auto">
+    <article style="width: 100%; display: flex; justify-content: space-between">
+      <div
+        style="
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          padding: 0 10px;
+          width: 100%;
+        "
+      >
+        <img style="width: 260px" src="../../../../../assets/logo.PNG" alt="" />
+      </div>
+      <div>
+        <div style="display: flex; flex-direction: column" *ngFor="let item of profileData">
+          <div style="padding: 1px 10px; background-color: #e7e7e7">
+            <h1
+              style="
+                font-weight: 700;
+                font-size: 17px;
+                line-height: 30px;
+                letter-spacing: 0px;
+                color: #000000;
+                text-align: center;
+                text-transform: uppercase;
+                margin: 0;
+              "
+            >
+              <strong>Datos del Ingeniero</strong>
+            </h1>
+          </div>
+          <div
+            style="display: flex; width: 700px; justify-content: space-between"
+          >
+            <div>
+              <p
+                style="
+                  font-weight: 400;
+                  font-size: 16px;
+                  line-height: 30px;
+                  color: #000000;
+                  text-align: left;
+                  text-transform: capitalize;
+                "
+              >
+                <strong> {{item.name}} </strong>
+              </p>
+              <p
+                style="
+                  font-weight: 400;
+                  font-size: 16px;
+                  line-height: 30px;
+                  color: #000000;
+                  text-align: left;
+                "
+              >
+               
+                {{item.address}} <br />
+                {{item.location}}
+                <strong>Télefono Celular: </strong
+                >871 188 3485 <br />
+              </p>
+              <p
+                style="
+                  font-weight: 400;
+                  font-size: 16px;
+                  line-height: 30px;
+                  color: #000000;
+                  text-align: left;
+                  text-transform: capitalize;
+                "
+              >
+                <strong> Correo: </strong>
+                cjccarranza@hotmail.com
+              </p>
+            </div>
+            <div
+              style="
+                padding-left: 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-end;
+                width: 300px;
+              "
+            >
+             
+
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; margin-top: 5px">
+          <div style="padding: 1px 10px; background-color: #e7e7e7">
+            <h1
+              style="
+                font-weight: 700;
+                font-size: 17px;
+                line-height: 30px;
+                letter-spacing: 0px;
+                color: #000000;
+                text-align: center;
+                text-transform: uppercase;
+                margin: 0;
+              "
+            >
+              <strong> Datos del Presupuesto </strong>
+            </h1>
+          </div>
+          <div style="display: flex; width: 500px">
+            <div>
+             
+              <p
+                style="
+                  font-weight: 600;
+                  font-size: 16px;
+                  line-height: 30px;
+                  color: #000000;
+                  text-align: left;
+                "
+              >
+                Fecha 
+              </p>
+              <p
+                style="
+                  font-weight: 600;
+                  font-size: 16px;
+                  line-height: 30px;
+                  color: #000000;
+                  text-align: left;
+                "
+              >
+                Lugar 
+              </p>
+            </div>
+            <div style="padding-left: 10px">
+             
+              <p
+                style="
+                  font-weight: 400;
+                  font-size: 16px;
+                  line-height: 30px;
+                  color: #000000;
+                  text-align: left;
+                "
+              >
+                <strong>
+                  {{
+                    presupuesto.createAt | date: "dd/MM/yyyy hh:mm"
+                  }}</strong
+                >
+              </p>
+              <p
+                style="
+                  font-weight: 400;
+                  font-size: 16px;
+                  line-height: 30px;
+                  color: #000000;
+                  text-align: left;
+                  text-transform: capitalize;
+                "
+              >
+                <strong>
+                 
+                  {{ presupuesto.address }}
+                 
+                </strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article style="margin-top: 5px">
+      <div
+        style="display: flex; flex-direction: column; width: 100% !important"
+      >
+        <div style="padding: 1px 10px; background-color: #e7e7e7">
+          <h1
+            style="
+              font-weight: 600;
+              font-size: 17px;
+              line-height: 30px;
+              letter-spacing: 0px;
+              color: #000000;
+              text-align: center;
+              text-transform: uppercase;
+              margin: 0;
+            "
+          >
+            <strong> Datos del Cliente </strong>
+          </h1>
+        </div>
+        <div style="display: flex; width: 750px">
+          <div>
+            <p
+              style="
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 30px;
+                color: #000000;
+                text-align: left;
+              "
+            >
+              <strong> Nombre </strong>
+            </p>
+            <p
+              style="
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 30px;
+                color: #000000;
+                text-align: left;
+              "
+            >
+              <strong> Correo </strong>
+            </p>
+            <p
+            style="
+              font-weight: 600;
+              font-size: 16px;
+              line-height: 30px;
+              color: #000000;
+              text-align: left;
+            "
+          >
+            <strong> Asunto </strong>
+          </p>
+          </div>
+          <div style="margin-left: 15px">
+            <p
+            *ngIf="presupuesto.name"
+              style="
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 30px;
+                color: #000000;
+                text-align: left;
+              "
+            >
+              {{ presupuesto.name }}
+            </p>
+            <div>
+              <p
+                style="
+                  font-weight: 600;
+                  font-size: 16px;
+                  line-height: 30px;
+                  color: #000000;
+                  text-align: left;
+                  align-self: center;
+                "
+              >
+                <span>
+                  {{ presupuesto.email }}
+                </span>
+                  
+                
+              </p>
+              <p
+              style="
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 30px;
+                color: #000000;
+                text-align: left;
+                align-self: center;
+              "
+            >
+              <span>
+                {{ presupuesto.Asunto }}
+              </span>
+                
+              
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <table style="margin-top: 5px; width: 100%; background-color: white">
+      <tr>
+       
+        <th
+          style="
+            padding: 5px 10px;
+            font-weight: medium;
+            font-size: 16px;
+            line-height: 30px;
+            color: #000000;
+            background-color: #e7e7e7;
+          "
+        >
+          Actividad / Descripcion
+        </th>
+        <th
+          style="
+            padding: 5px 10px;
+            font-weight: medium;
+            font-size: 16px;
+            line-height: 30px;
+            color: #000000;
+            background-color: #e7e7e7;
+          "
+        >
+          Cantidad
+        </th>
+        <th
+        style="
+          padding: 5px 10px;
+          font-weight: medium;
+          font-size: 16px;
+          line-height: 30px;
+          color: #000000;
+          background-color: #e7e7e7;
+        "
+      >
+        Unidad
+      </th>
+      <th
+      style="
+        padding: 5px 10px;
+        font-weight: medium;
+        font-size: 16px;
+        line-height: 30px;
+        color: #000000;
+        background-color: #e7e7e7;
+      "
+    >
+      Precio unitario
+    </th>
+    <th
+    style="
+      padding: 5px 10px;
+      font-weight: medium;
+      font-size: 16px;
+      line-height: 30px;
+      color: #000000;
+      background-color: #e7e7e7;
+    "
+  >
+    subtotal
+  </th>
+       
+      </tr>
+      <tr *ngFor="let item of presupuesto.actividades">
+       
+        <td style="padding: 10px 10px 20px">
+          <p
+            style="
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 20px;
+              color: #000000;
+              text-align: left;
+            "
+          >
+            {{ item.description }} <br />
+          </p>
+        </td>
+
+        <td style="padding: 10px 10px 20px">
+          <p
+            style="
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 20px;
+              color: #000000;
+              text-align: left;
+            "
+          >
+            {{ item.cantidad }} <br />
+          </p>
+        </td>
+        
+        <td style="padding: 10px 10px 20px">
+          <p
+            style="
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 20px;
+              color: #000000;
+              text-align: left;
+            "
+          >
+            {{ item.unidad }} <br />
+          </p>
+        </td>
+
+        <td style="padding: 10px 10px 20px">
+          <p
+            style="
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 20px;
+              color: #000000;
+              text-align: left;
+            "
+          >
+            {{ item.precioUnitario | currency }} <br />
+          </p>
+        </td>
+
+        <td style="padding: 10px 10px 20px">
+          <p
+            style="
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 20px;
+              color: #000000;
+              text-align: left;
+            "
+          >
+            {{ item.subTotal | currency }} <br />
+          </p>
+        </td>
+      </tr>
+    
+    </table>
+    
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        margin-top: 20px;
+      "
+    >
+      <div style="padding: 1px 10px; background-color: #e7e7e7">
+        <h1
+          style="
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 30px;
+            letter-spacing: 0px;
+            color: #000000;
+            text-transform: uppercase;
+            margin: 0;
+          "
+        >
+          <strong> Total </strong>
+        </h1>
+      </div>
+      <div style="display: flex; width: 750px">
+        <p
+          style="
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 30px;
+            color: #000000;
+            text-align: left;
+          "
+        >
+          <span >
+            <strong>{{presupuesto.total | currency }}</strong
+            ><br />
+          </span>
+        </p>
+      </div>
+    </div>
+    <article
+      style="
+        margin-top: 120px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 60px;
+      "
+    >
+      <div style="margin: 0 auto">
+        <div style="display: flex; justify-content: center">
+          <div
+            style="
+              width: 100%;
+              padding: 10px 10px 0;
+              padding-left: 0;
+              display: flex;
+              justify-content: center;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                width: 100%;
+              "
+            >
+              <p
+                style="
+                  width: 100%;
+                  text-align: center;
+                  display: flex;
+                  justify-content: center;
+                "
+              >
+                <!--
+                  <img
+                  style="max-width: 148px"
+                  [src]="presupuesto.doctor_signature"
+                  alt="doctor_signature"
+                />
+                -->
+              </p>
+              <div style="width: 184px">
+                <hr />
+              </div>
+              <h1
+                style="
+                  font-weight: 400;
+                  color: #000000;
+                  text-align: center;
+                  font-size: 15px;
+                  line-height: 20px;
+                  margin-bottom: 40px;
+                "
+              >
+                Firma del Ingeniero
+              </h1>
+            </div>
+
+           
+          </div>
+        </div>
+      </div>
+    </article>
+  
+  </section>
+</div>

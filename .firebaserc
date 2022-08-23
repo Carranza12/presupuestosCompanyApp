@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "cjc-presupuestos"
+  },
+  "targets": {
+    "cjc-presupuestos": {
+      "hosting": {
+        "cjc-web": [
+          "cjc-presupuestos"
+        ]
+      }
+    }
+  }
+}

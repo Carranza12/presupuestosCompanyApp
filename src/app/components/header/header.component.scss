@@ -1,0 +1,35 @@
+header{
+   
+    margin-left: 150px;
+    height: 40px;
+    display: flex;
+    @media(max-width:900px){
+        margin-left: 40px;
+    }
+    justify-content: flex-end;
+    .user-info{
+        margin-right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 30px;
+            height: 30px;
+           background-color: rgb(244, 250, 177);
+           border-radius: 100%;
+           margin-right: 5px;
+           margin-left: 5px;
+        }
+        p{
+            font-weight: 600;
+        }
+    }
+}
+.menu-icon{
+    display: none;
+}
+@media(max-width:900px){
+    .menu-icon{
+        display: block;
+    }
+}

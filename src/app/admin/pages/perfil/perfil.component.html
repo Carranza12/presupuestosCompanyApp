@@ -1,0 +1,44 @@
+<main>
+  <div>
+    <app-header></app-header>
+  </div>
+  <div class="page">
+    <app-aside></app-aside>
+    <div class="container-page">
+      <app-subheader
+        [title]="'Mi Perfil'"
+        [typeModal]="'perfil'"
+      ></app-subheader>
+      <div class="content">
+        <div class="my-profile" *ngFor="let item of user">
+          <div class="main-info">
+            <img src="../../../../assets/56686124_454165968658340_7047799010681159680_n.jpg" alt="">
+            <div class="edit">
+              <h2>{{item.name}}</h2>
+              <img class="edit-icon" src="../../../../assets/icons/edit-2.svg" alt="" (click)="editProfile('name',item)">
+            </div>
+          </div>
+          <div class="item-info">
+            <div class="edit">
+              <p>Direccion</p>
+            <img class="edit-icon" src="../../../../assets/icons/edit-2.svg" alt="" (click)="editProfile('address',item)">
+            </div>
+            <div class="info mt-2">
+              <p>{{item.address}}</p>
+
+            </div>
+          </div>
+          <div class="item-info">
+            <div class="edit">
+              <p>Localidad</p>
+              <img class="edit-icon" src="../../../../assets/icons/edit-2.svg" alt="" (click)="editProfile('location',item)">
+            </div>
+            <div class="info mt-2">
+              <p>{{item.location}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

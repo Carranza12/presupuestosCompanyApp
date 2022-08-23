@@ -1,0 +1,29 @@
+<div class="container d-flex flex-column">
+  <form >
+    <mat-form-field appearance="legacy" *ngIf="data.attribute==='name'" >
+      <mat-label>Escribe el nuevo nombre completo</mat-label>
+      <input matInput placeholder="nombre completo" [formControl]="fullName">
+      <mat-hint>Escribe tu nombre</mat-hint>
+    </mat-form-field>
+  
+    <mat-form-field appearance="legacy" *ngIf="data.attribute==='address'" >
+      <mat-label>Escribe la nueva dirección</mat-label>
+      <input matInput placeholder="Dirección" [formControl]="address">
+      <mat-hint>Dirección</mat-hint>
+    </mat-form-field>
+  
+    <mat-form-field appearance="legacy" *ngIf="data.attribute==='location'">
+      <mat-label>Escribe la nueva localidad</mat-label>
+      <input matInput placeholder="Localidad"  [formControl]="location">
+      <mat-hint>Localidad</mat-hint>
+    </mat-form-field>
+  
+    <div class="example-button-container mt-2">
+      <button type="button"  (click)="updateData()" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+        <mat-icon>save</mat-icon>
+      </button>
+    </div>
+  </form>
+ 
+
+</div>

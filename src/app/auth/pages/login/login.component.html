@@ -1,0 +1,39 @@
+<div class="container">
+    <header>
+        <h1 class="h1_primary">Accede a tu cuenta</h1>
+        <img src="../../../../assets/OIP.jfif" alt="">
+    </header>
+    <div class="form">
+        <form [formGroup]="loginForm">
+            <div class="form-group mb-2">
+                <input class="ng_input" type="email" placeholder="Correo Electrónico" formControlName="email">
+                <div class="error-alert" *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+                    <span *ngIf="loginForm.controls['email'].errors?.['required'] && loginForm.controls['email'].touched">
+                        Este campo es obligatorio
+                    </span>
+                    <span *ngIf="loginForm.controls['email'].errors?.['email'] && loginForm.controls['email'].touched">
+                        Proporciona un email válido
+                    </span>
+                </div>
+            </div>
+            
+            <div class="form-group  mb-2">
+                <input class="ng_input" type="password" placeholder="Contaseña" formControlName="password">
+                <div class="error-alert" *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+                    <span *ngIf="loginForm.controls['password'].errors?.['required'] && loginForm.controls['password'].touched">
+                        Este campo es obligatorio
+                    </span>
+                    <span *ngIf="loginForm.controls['password'].errors?.['minLength'] && loginForm.controls['password'].touched">
+                        Como minímo debe contar con 8 carácteres
+                    </span>
+                    <span *ngIf="loginForm.controls['password'].errors?.['maxLength'] && loginForm.controls['password'].touched">
+                        Como máximo debe contar con 16 carácteres
+                    </span>
+                </div>
+            </div>
+            <div class="form-group  mb-2">
+                <button class="ng_button" type="submit" (click)="login()">Iniciar sesión</button>
+            </div>
+        </form>
+    </div>
+</div>

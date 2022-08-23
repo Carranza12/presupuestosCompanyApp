@@ -1,0 +1,108 @@
+<h1>Nuevo Cliente
+</h1>
+<div class="row">
+  <div class="col-12">
+    <form class="example-form" [formGroup]="clienteForm">
+      <label for="">Datos del cliente:</label><br />
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <mat-form-field class="w-100 example-full-width" appearance="fill">
+            <mat-label>Nombre del cliente</mat-label>
+            <input
+              type="text"
+              matInput
+              formControlName="name"
+              placeholder="Nombre del cliente"
+            />
+            <mat-error
+              *ngIf="
+              clienteForm.controls['name'].touched &&
+              clienteForm.controls['name'].hasError('required')
+              "
+            >
+              Este campo es obligatorio
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <mat-form-field class="w-100 example-full-width" appearance="fill">
+            <mat-label>Dirección del cliente</mat-label>
+            <input
+              class="w-100"
+              type="text"
+              matInput
+              formControlName="address"
+              placeholder="dirección del cliente"
+            />
+            <mat-error
+              *ngIf="
+              clienteForm.controls['address'].touched &&
+              clienteForm.controls['address'].hasError('required')
+              "
+            >
+              Este campo es obligatorio
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-12 col-md-6">
+          <mat-form-field class="w-100 example-full-width" appearance="fill">
+            <mat-label>Correo Electrónico</mat-label>
+            <input
+              type="email"
+              matInput
+              formControlName="email"
+              placeholder="correo electrónico"
+            />
+            <mat-error
+              *ngIf="
+              clienteForm.controls['email'].touched &&
+              clienteForm.controls['email'].hasError('required')
+              "
+            >
+              Este campo es obligatorio
+            </mat-error>
+            <mat-error
+              *ngIf="
+              clienteForm.controls['email'].touched &&
+              clienteForm.controls['email'].hasError('email')
+              "
+            >
+              Introduce un formato válido
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    
+
+     
+      
+      <hr />
+      <div class="row mt-2">
+        <div class="col-6">
+          <button
+            type="button"
+            class="w-100"
+            mat-raised-button
+            color="primary"
+            (click)="saveData()"
+          >
+            {{ data ? "EDITAR" : "CREAR" }}
+          </button>
+        </div>
+        <div class="col-6">
+          <button
+            type="button"
+            class="ms-2 w-100"
+            mat-raised-button
+            color="primary"
+            (click)="closeModal()"
+          >
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

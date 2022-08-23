@@ -1,0 +1,25 @@
+<nav *ngIf="_general.isOpen == true">
+  <div class="options">
+    <h3>CJC</h3>
+    <div class="option" (click)="navigateByUrl('admin/estadisticas')">
+      <img src="../../../assets/icons/pie-chart.svg" alt="estadisticas-icon" />
+      <div class="option-text">Estadisticas</div>
+    </div>
+    <div class="option" (click)="navigateByUrl('admin/presupuestos')">
+      <img src="../../../assets/icons/file-plus.svg" alt="presupuestos-icon" />
+      <div class="option-text">Presupuestos</div>
+    </div>
+    <div class="option" (click)="navigateByUrl('admin/clientes')">
+      <img src="../../../assets/icons/user.svg" alt="presupuestos-icon" />
+      <div class="option-text">Clientes</div>
+    </div>
+    <div class="option" (click)="navigateByUrl('admin/perfil')">
+      <img src="../../../assets/icons/settings.svg" alt="perfil-icon" />
+      <div class="option-text">Mi perfil</div>
+    </div>
+  </div>
+  <div class="logout" (click)="logout()">
+    <img src="../../../assets/icons/log-out.svg" alt="" />
+    <div class="option-text">Cerrar sesión</div>
+  </div>
+</nav>
