@@ -24,7 +24,10 @@ export class LoginComponent implements OnInit {
 
   public login(){
     setTimeout(() => {
-     
+      if(this.loginForm.invalid){
+        this.loginForm.markAllAsTouched()
+        return;
+      }
     const login={
       ...this.loginForm.value
     }
@@ -32,7 +35,7 @@ export class LoginComponent implements OnInit {
       this.spinner.show();
       this._firebase.login(login.email,login.password)
     .then((user)=>{
-      this._router.navigateByUrl('admin/presupuestos')
+      this._router.navigateByUrl('admin/presupuestos') 
       this.spinner.hide();
     })
     }

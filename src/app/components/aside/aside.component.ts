@@ -23,7 +23,7 @@ export class AsideComponent implements OnInit {
 
   public logout(){
     this._firebase.signOut().then(() => {
-      window.location.reload();
+      this._router.navigateByUrl('')
     });
   }
 

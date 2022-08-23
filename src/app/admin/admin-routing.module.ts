@@ -18,7 +18,8 @@ const routes: Routes = [
   {
     path: 'perfil', loadChildren: () => import('./pages/perfil/perfil.module').then(m => m.PerfilModule),
     canActivate: [LoginGuard]
-  }
+  },
+  { path: 'archivados', loadChildren: () => import('./pages/archivados/archivados.module').then(m => m.ArchivadosModule) }
 ];
 
 @NgModule({

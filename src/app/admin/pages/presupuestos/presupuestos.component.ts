@@ -6,6 +6,7 @@ import { AddPresupuestoComponent } from 'src/app/components/modals/add-presupues
 import { FirebaseService } from 'src/app/services/firebase.service';
 import Swal from 'sweetalert2';
 import { NgxSpinnerService } from "ngx-spinner";
+import { ArchivedService } from 'src/app/services/archived.service';
 @Component({
   selector: 'app-presupuestos',
   templateUrl: './presupuestos.component.html',
@@ -19,7 +20,12 @@ export class PresupuestosComponent implements OnInit {
 
   public searchControl:FormControl=new FormControl('')
 
-  constructor(private _firebase:FirebaseService, public dialog: MatDialog, private router:Router,private spinner: NgxSpinnerService) { }
+  constructor(
+    private _firebase:FirebaseService,
+     public dialog: MatDialog, 
+     private router:Router,
+     private spinner: NgxSpinnerService,
+     private _archiveds:ArchivedService) { }
 
   ngOnInit(): void {
     this.spinner.show();
@@ -76,27 +82,32 @@ export class PresupuestosComponent implements OnInit {
     });
   }
 
-  public delete(id:string){
+  public archive(element:any){
+
+    
     Swal.fire({
       title: 'Estas seguro?',
-      text: "Ya no podrás recuperarlo!",
+      text: "Este archivo se mandará a archivados!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'si, quiero eliminarlo!'
+      confirmButtonText: 'si, quiero archivarlo!'
     }).then((result) => {
       if (result.isConfirmed) {
         this.spinner.show();
-        this._firebase.deleteDocument('presupuestos',id)
+        this._firebase.addDocument('archiveds',element);
+        this._firebase.deleteDocument('presupuestos',element.id);
         Swal.fire(
-          'Eliminado!',
-          'La actividad se eliminó con éxito',
+          'Archivado!',
+          'La actividad se archivó con éxito',
           'success'
         )
+
         this.spinner.hide();
       }
     })
+
     
   }
 }
