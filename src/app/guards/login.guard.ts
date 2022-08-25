@@ -14,6 +14,8 @@ export class LoginGuard implements CanActivate {
       const url: string = route.url[0].path;
       const user = await this._firebase.getUser();
       ;
+      console.log('user:', user);
+      
       if (user) {
         if (user.role === 'admin') {
           if (url == 'auth') {

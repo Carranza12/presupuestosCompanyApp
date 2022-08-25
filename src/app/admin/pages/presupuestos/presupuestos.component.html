@@ -7,9 +7,13 @@
     <div class="container-page">
             <app-subheader [title]="'Presupuestos'" [typeModal]="'presupuesto'"></app-subheader>
             <div class="content">
-              <div class="form-group">
+              <div class="form-group ">
                 <input class="ng_input input_search ng-input-mobile" [formControl]="searchControl" type="text" placeholder="Busca un presupuesto..." >
-            </div>
+                <div class="mt-3 mb-5 pointer" (click)="router.navigateByUrl('admin/archivados')">
+                  <img src="../../../../assets/icons/archive.svg" width="20" alt="">
+                  ver archivados
+                </div>
+              </div>
             <div class="mat-container">
               <mat-card class="m-2 example-card" *ngFor="let item of listOfPresupuestos">
                 <mat-card-header>

@@ -1,12 +1,19 @@
 {
   "projects": {
-    "default": "cjc-presupuestos"
+    "default": "presupuestos-dev"
   },
   "targets": {
     "cjc-presupuestos": {
       "hosting": {
         "cjc-web": [
           "cjc-presupuestos"
+        ]
+      }
+    },
+    "presupuestos-dev": {
+      "hosting": {
+        "cjc-web": [
+          "presupuestos-dev"
         ]
       }
     }

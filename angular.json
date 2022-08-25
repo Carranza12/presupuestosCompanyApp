@@ -30,7 +30,6 @@
             "styles": [
               "src/styles.scss",
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-
               "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "scripts": []
@@ -111,8 +110,8 @@
             "prerender": false,
             "ssr": false,
             "browserTarget": "cjc-web:build:production",
-            "firebaseProject": "cjc-presupuestos",
-            "firebaseHostingSite": "cjc-presupuestos"
+            "firebaseProject": "presupuestos-dev",
+            "firebaseHostingSite": "presupuestos-dev"
           }
         }
       }

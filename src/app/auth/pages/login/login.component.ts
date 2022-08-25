@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { NgxSpinnerService } from "ngx-spinner";
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -37,6 +38,14 @@ export class LoginComponent implements OnInit {
     .then((user)=>{
       this._router.navigateByUrl('admin/presupuestos') 
       this.spinner.hide();
+    }).catch((err)=>{
+      this.spinner.hide()
+      console.log('error');
+      Swal.fire(
+        'Upss!',
+        'Contraseña o correo incorrecto, vuelve a intertarlo!',
+        'warning'
+      )
     })
     }
     

@@ -23,7 +23,7 @@ export class PresupuestosComponent implements OnInit {
   constructor(
     private _firebase:FirebaseService,
      public dialog: MatDialog, 
-     private router:Router,
+     public router:Router,
      private spinner: NgxSpinnerService,
      private _archiveds:ArchivedService) { }
 
