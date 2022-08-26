@@ -9,7 +9,7 @@ export class ProfileService {
   constructor(private _firebase:FirebaseService) { }
 
   async editUser(data:any){
-    return await this._firebase.updateDocument('profile',data,'YsSWpD1p8xWJis8ptIi8');
+    return await this._firebase.updateDocument('profile',data,'Lsw2bMyn0C9Geh6oy01g');
   }
 
   public async getProfileData(): Promise<any[]> {
