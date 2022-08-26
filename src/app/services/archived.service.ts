@@ -7,7 +7,11 @@ import { FirebaseService } from './firebase.service';
 export class ArchivedService {
 
   public archived:any;
-  constructor(private _firebase:FirebaseService) { }
+  public unarchive:any;
+  
+  constructor(
+    private _firebase:FirebaseService,
+    ) { }
 
   
 
@@ -23,6 +27,10 @@ export class ArchivedService {
     } catch (error) {
       return [];
     }
+  }
+
+  public  deleteArchiveds():void{
+    
   }
   
 }

@@ -21,7 +21,12 @@ export class ArchivadosComponent implements OnInit {
 
   public searchControl: FormControl = new FormControl('')
 
-  constructor( private _archiveds:ArchivedService,public dialog: MatDialog, private router: Router,private spinner: NgxSpinnerService) { }
+  constructor( 
+    private _archiveds:ArchivedService,
+    public dialog: MatDialog, 
+    private router: Router,
+    private spinner: NgxSpinnerService,
+    private _firebase:FirebaseService) { }
 
   ngOnInit(): void {
     this.spinner.show();
@@ -40,7 +45,34 @@ export class ArchivadosComponent implements OnInit {
     })
   }
 
-  
+  public desArchive(element:any){
+
+    
+    Swal.fire({
+      title: 'Estas seguro?',
+      text: "Este archivo se mandará a Presupuestos!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'si, quiero desarchivarlo!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.spinner.show();
+        this._firebase.addDocument('presupuestos',element);
+        this._firebase.deleteDocument('archiveds',element.id);
+        Swal.fire(
+          'Desarchivado!',
+          'La actividad se desarchivó con éxito',
+          'success'
+        )
+
+        this.spinner.hide();
+      }
+    })
+
+    
+  }
 
   public async filterSearch() {
     let list = await this._archiveds.getArchiveds();

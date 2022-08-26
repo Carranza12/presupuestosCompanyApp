@@ -9,7 +9,8 @@
              <div class="content">
                <div class="form-group">
                  <input class="ng_input input_search ng-input-mobile" [formControl]="searchControl" type="text" placeholder="Busca en el archivado..." >
-             </div>
+                
+                </div>
              <div class="mat-container">
                <mat-card class="m-2 example-card" *ngFor="let item of listOfArchived">
                  <mat-card-header>
@@ -25,7 +26,7 @@
                    </p>
                    
                  </mat-card-content>
-                
+                 <button mat-button (click)="desArchive(item)">Desarchivar</button>
                </mat-card>
              </div>
              

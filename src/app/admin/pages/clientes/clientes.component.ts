@@ -35,7 +35,8 @@ export class ClientesComponent implements OnInit {
 
   public listenSearchInput() {
     this.searchControl.valueChanges.subscribe(value => {
-      this.filterSearch();
+      if(value) this.filterSearch();
+
     })
   }
   public async getClients(): Promise<any[]> {
@@ -57,8 +58,8 @@ export class ClientesComponent implements OnInit {
     const value = this.searchControl.value.toLowerCase();
     let data = list.filter(
       (item) =>
-        item.Asunto.toLowerCase().includes(value) ||
-        item.name.toLowerCase().includes(value)
+        item.email.toLowerCase().includes(value) ||
+        item.name.toLowerCase().includes(value) 
     );
     this.listOfClients = data;
   }
