@@ -162,8 +162,9 @@ main {
 }
 
 .b-card-detail-list {
-  background-color: #faf7f4;
+  background-color: hsl(30, 37%, 97%);
   flex-wrap: wrap;
+  gap: 10px;
   border-radius: 15px;
   color: rgb(0, 0, 0);
   display: flex;
@@ -267,4 +268,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .pointer{
   cursor: pointer;
+}
+a:hover{
+  color: #fff!important;
+  cursor:pointer;
 }

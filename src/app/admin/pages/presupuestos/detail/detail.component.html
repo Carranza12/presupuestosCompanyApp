@@ -6,7 +6,7 @@
     <app-aside></app-aside>
     <div class="container-page">
       <app-subheader [title]="'Presupuestos'"></app-subheader>
-      <div class="content">
+      <div class="content" *ngIf="presupuesto">
         <div class="h-card-detail">
           <div class="title">
             <h1>Visualiza tu <br />Presupuesto</h1>
@@ -23,7 +23,7 @@
         </div>
         <div class="b-card-detail">
           <div class="info">
-            <p  *ngIf="presupuesto.name">
+            <p >
               <span
                 ><strong>Nombre del cliente: </strong
                 >{{ presupuesto.name }}</span
@@ -104,7 +104,10 @@
           width: 100%;
         "
       >
-        <img style="width: 260px" src="../../../../../assets/logo.PNG" alt="" />
+        <!-- 
+          <img style="width: 260px" src="../../../../../assets/logo.PNG" alt="" />
+        -->
+        <h1><strong>LOGO DE LA EMPRESA</strong></h1>
       </div>
       <div>
         <div style="display: flex; flex-direction: column" *ngFor="let item of profileData">
@@ -138,9 +141,10 @@
                   text-transform: capitalize;
                 "
               >
-                <strong> {{item.name}} </strong>
+                <strong>Nombre: {{item.name}} </strong>
               </p>
-              <p
+             <!-- 
+               <p
                 style="
                   font-weight: 400;
                   font-size: 16px;
@@ -155,7 +159,9 @@
                 <strong>Télefono Celular: </strong
                 >871 188 3485 <br />
               </p>
-              <p
+             -->
+             <!--
+               <p
                 style="
                   font-weight: 400;
                   font-size: 16px;
@@ -168,6 +174,7 @@
                 <strong> Correo: </strong>
                 cjccarranza@hotmail.com
               </p>
+             -->
             </div>
             <div
               style="
@@ -323,7 +330,7 @@
           </div>
           <div style="margin-left: 15px">
             <p
-            *ngIf="presupuesto.name"
+          
               style="
                 font-weight: 400;
                 font-size: 16px;
