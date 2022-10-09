@@ -1,6 +1,5 @@
 <header>
-    <div class="user-info pointer" *ngFor="let item of user" (click)="navigateByUrl('admin/perfil')">
-        <img src="../../../assets/56686124_454165968658340_7047799010681159680_n.jpg" alt="">
-        <p> {{item.name}}</p>
+    <div class="user-info pointer" *ngIf="user" >
+        <p> {{user.name}}</p>
     </div>
 </header>

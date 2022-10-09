@@ -1,0 +1,15 @@
+main{
+    display: flex;
+    flex-direction: column;
+    .page{
+        display: flex;
+        flex-direction: row;
+        .container-page{
+            width: calc(100vw -  150px);
+        }
+    }
+}
+
+.h1-dashboard{
+    font-size: 40px;
+}

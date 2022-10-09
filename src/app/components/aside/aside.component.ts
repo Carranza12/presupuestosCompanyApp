@@ -9,10 +9,11 @@ import { FirebaseService } from 'src/app/services/firebase.service';
   styleUrls: ['./aside.component.scss']
 })
 export class AsideComponent implements OnInit {
-
+  public  user:any;
   constructor(public _router:Router, public _general:GeneralService, public spinner: NgxSpinnerService, private _firebase:FirebaseService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.user= await this._firebase.getUser();
   }
 
   public navigateByUrl(typeUrl:string){
@@ -24,6 +25,7 @@ export class AsideComponent implements OnInit {
   public logout(){
     this._firebase.signOut().then(() => {
       this._router.navigateByUrl('')
+     
     });
   }
 

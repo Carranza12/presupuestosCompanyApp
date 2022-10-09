@@ -18,9 +18,11 @@ export class LoginComponent implements OnInit {
     password: new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(16)])
   })
 
+  public userAuth:any;
   constructor(private _firebase:FirebaseService, private _router:Router,private spinner: NgxSpinnerService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.userAuth= await this._firebase.getUser()
   }
 
   public login(){
@@ -36,7 +38,10 @@ export class LoginComponent implements OnInit {
       this.spinner.show();
       this._firebase.login(login.email,login.password)
     .then((user)=>{
-      this._router.navigateByUrl('admin/presupuestos') 
+      let path='';
+     if(this.userAuth.role==='admin') path='admin/presupuestos'
+     if(this.userAuth.role==='logistica') path='/logistica'
+     this._router.navigateByUrl(path)
       this.spinner.hide();
     }).catch((err)=>{
       this.spinner.hide()

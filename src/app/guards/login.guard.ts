@@ -15,24 +15,30 @@ export class LoginGuard implements CanActivate {
       const user = await this._firebase.getUser();
       ;
       console.log('user:', user);
-      
+      //user.role==='logistica'
       if (user) {
-        if (user.role === 'admin') {
+        let path=''
+        if (user.role === 'admin' ) path='admin/presupuestos'
+        if (user.role === 'logistica' ) path='/logistica'
+
+        console.log(path)
           if (url == 'auth') {
-            this._router.navigateByUrl('admin/presupuestos')
+            console.log('si')
+            this._router.navigateByUrl(path)
             return false;
           } else {
             return true;
           }
-        } else {
+         
           this._firebase.signOut();
           return false;
-        }
+        
       } else {
+        console.log(url)
         if (url == 'auth') {
           return true;
         } else {
-          this._router.navigateByUrl('login')
+          this._router.navigateByUrl('')
           return false;
         }
       }

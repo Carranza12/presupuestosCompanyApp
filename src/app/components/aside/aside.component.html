@@ -1,6 +1,6 @@
 <nav *ngIf="_general.isOpen == true">
   <div class="options">
-    <h3>CJC</h3>
+    <h3>MX</h3>
     <div class="option" (click)="navigateByUrl('admin/estadisticas')">
       <img src="../../../assets/icons/pie-chart.svg" alt="estadisticas-icon" />
       <div class="option-text">Estadisticas</div>
@@ -12,6 +12,10 @@
     <div class="option" (click)="navigateByUrl('admin/clientes')">
       <img src="../../../assets/icons/user.svg" alt="presupuestos-icon" />
       <div class="option-text">Clientes</div>
+    </div>
+    <div class="option" *ngIf="user.role && user.role=='logistica'" (click)="navigateByUrl('admin/clientes')">
+      <img src="../../../assets/icons/user.svg" alt="presupuestos-icon" />
+      <div class="option-text">Lista de espera</div>
     </div>
     <!--
       <div class="option" (click)="navigateByUrl('admin/perfil')">
