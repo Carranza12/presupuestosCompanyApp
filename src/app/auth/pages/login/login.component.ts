@@ -41,6 +41,8 @@ export class LoginComponent implements OnInit {
       let path='';
      if(this.userAuth.role==='admin') path='admin/presupuestos'
      if(this.userAuth.role==='logistica') path='/logistica'
+     if(this.userAuth.role==='ingeniero') path='/ingeniero'
+     console.log(path)
      this._router.navigateByUrl(path)
       this.spinner.hide();
     }).catch((err)=>{

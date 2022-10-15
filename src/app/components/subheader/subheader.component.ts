@@ -26,7 +26,7 @@ export class SubheaderComponent implements OnInit {
     if (this.typeModal === 'cliente') {
       const dialogRef = this.dialog.open(AddClientComponent, {
         height: 'auto',
-        width: '700px'
+        width: '700px',
       });
     }
 

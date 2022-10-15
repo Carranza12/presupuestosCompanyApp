@@ -4,47 +4,21 @@
     <form class="example-form" [formGroup]="presupuestoForm">
       <label for="">Datos del cliente:</label><br />
       
-      <div class="row">
-        <div class="col-12 col-md-12">
-          <mat-form-field class="w-100 example-full-width" appearance="fill">
-            <mat-label>Selecciona un cliente</mat-label>
-            <input type="text"
-                   placeholder="Escribe el nombre del cliente"
-                   aria-label="Number"
-                   matInput
-                   formControlName="name"
-                   [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let option of listOfClientsFiltered" [value]="option.name" (click)="setClient(option)">
-                {{option.name}}
-              </mat-option>
-            </mat-autocomplete>
-            <mat-error
-              *ngIf="
-                presupuestoForm.controls['name'].touched &&
-                presupuestoForm.controls['name'].hasError('required')
-              "
-            >
-              Este campo es obligatorio
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
+     
       <div class="row">
         <div class="col-12 col-md-6">
           <mat-form-field class="w-100 example-full-width" appearance="fill">
-            <mat-label>Dirección del cliente</mat-label>
+            <mat-label>Nombre del cliente:</mat-label>
             <input
               class="w-100"
               type="text"
               matInput
-              formControlName="address"
-              placeholder="dirección del cliente"
+              formControlName="full_name"
             />
             <mat-error
               *ngIf="
-                presupuestoForm.controls['address'].touched &&
-                presupuestoForm.controls['address'].hasError('required')
+                presupuestoForm.controls['full_name'].touched &&
+                presupuestoForm.controls['full_name'].hasError('required')
               "
             >
               Este campo es obligatorio
@@ -58,7 +32,6 @@
               type="email"
               matInput
               formControlName="email"
-              placeholder="correo electrónico"
             />
             <mat-error
               *ngIf="
@@ -78,45 +51,27 @@
             </mat-error>
           </mat-form-field>
         </div>
-      </div>
-      <label for="">Datos del Presupuesto:</label><br />
-      <div class="row">
-        <div class="col-12">
-          <mat-form-field
-            class="w-100 h-50 example-full-width"
-            appearance="fill"
-          >
-            <mat-label>Asunto del presupuesto</mat-label>
+        <div class="col-12 col-md-6">
+          <mat-form-field class="w-100 example-full-width" appearance="fill">
+            <mat-label>Télefono del cliente:</mat-label>
             <input
+              class="w-100"
+              type="text"
               matInput
-              #message
-              maxlength="256"
-              formControlName="Asunto"
-              placeholder="Asunto del presupuesto"
+              formControlName="phone"
             />
-            <mat-hint align="start"
-              ><strong>Escribe sobre que trata el presupuesto</strong>
-            </mat-hint>
-            <mat-hint align="end">{{ message.value.length }} / 256</mat-hint>
             <mat-error
               *ngIf="
-                presupuestoForm.controls['Asunto'].touched &&
-                presupuestoForm.controls['Asunto'].hasError('required')
+                presupuestoForm.controls['phone'].touched &&
+                presupuestoForm.controls['phone'].hasError('required')
               "
             >
               Este campo es obligatorio
             </mat-error>
-            <mat-error
-              *ngIf="
-                presupuestoForm.controls['Asunto'].touched &&
-                presupuestoForm.controls['Asunto'].hasError('maxLength')
-              "
-            >
-              Solo puedes escribir 256 carácteres.
-            </mat-error>
           </mat-form-field>
         </div>
       </div>
+     
       <div class="row mt-2">
         <label>Agrega las Actividades</label>
         <div class="col-12 col-md-12">

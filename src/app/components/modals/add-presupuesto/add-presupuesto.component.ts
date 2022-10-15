@@ -17,10 +17,14 @@ export class AddPresupuestoComponent implements OnInit {
   public listOfUnidades: any[] = [];
 
   public presupuestoForm: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    address: new FormControl('', [Validators.required]),
+    full_name: new FormControl('', [Validators.required]),
+    phone: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    Asunto: new FormControl('', [Validators.required, Validators.maxLength(256)]),
+    details: new FormControl('', [Validators.required, Validators.maxLength(500)]),
+    budget:new FormControl('',Validators.required),
+    how_many_units:new FormControl('',Validators.required),
+    land_measures:new FormControl('',Validators.required),
+    type_job:new FormControl('',Validators.required),
   })
 
   public descripcionControl: FormControl = new FormControl('', [Validators.required]);
@@ -51,20 +55,14 @@ export class AddPresupuestoComponent implements OnInit {
 
   ngOnInit(): void {
     this.listOfUnidades = this._data.getUnidades();
-    this.initClient();
-    this.presupuestoForm.controls['name'].valueChanges.subscribe(value => {
-      console.log(value);
-      this.filterClientAutocomplet(value)
-    })
-    if (this.data) {
-      this.setEditPresupuesto();
-      console.log(this.arrayOfActividades);
 
+    if (this.data) {
+     this.setClient();
     }
   }
 
   public async initClient() {
-    this.listOfClients = await this._collections.getClients();
+   // this.listOfClients = await this._collections.getClients();
   }
 
   public filterClientAutocomplet(value: any) {
@@ -75,9 +73,10 @@ export class AddPresupuestoComponent implements OnInit {
     this.listOfClientsFiltered = this.listOfClients.filter(client => client.name.toLowerCase().includes(value));
   }
 
-  public setClient(client: any) {
-    this.presupuestoForm.controls['email'].setValue(client.email)
-    this.presupuestoForm.controls['address'].setValue(client.address)
+  public setClient() {
+    this.presupuestoForm.controls['full_name'].setValue(this.data.full_name)
+    this.presupuestoForm.controls['email'].setValue(this.data.email)
+    this.presupuestoForm.controls['phone'].setValue(this.data.phone)
 
   }
 

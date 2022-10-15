@@ -31,4 +31,19 @@ export class DataService {
       }
     ]
   }
+
+  public getClientesEnEspera(){
+    return [
+      {
+        full_name:"Francisco Carranza",
+        email:"Francisco@mail.com",
+        phone:"8715741717",
+        type_job:"Ampliación de una casa/habitación",
+        how_many_units:1,
+        land_measures:"100 metros cúbicos",
+        budget:"25,000-35,000",
+        details:"quiero una remodelacion completa de un baño, para añadirle una mejor fachada y que se vea bonito"
+      }
+    ]
+  }
 }
