@@ -1,0 +1,42 @@
+<main>
+    <div>
+      <app-header></app-header>
+    </div>
+    <div class="page">
+      <app-aside [mode]="'logistica'"></app-aside>
+      <div class="container-page">
+        <app-subheader [title]="'Bienvenido!'"></app-subheader>
+        <div class="content">
+          <h1>Presupuestos Aprobados</h1>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4 mb-3" *ngFor="let item of presupuestosAprobados">
+            <div
+            class="card "
+            
+            style="width: 18rem"
+          >
+            <div class="card-body">
+              <mat-card-title class="m-0 d-flex align-items-center text-center mb-2">{{
+                item.full_name
+              }}</mat-card-title>
+             
+            </div>
+            <ul class="list-group list-group-flush">
+            
+              <li class="list-group-item">
+                Presupuesto: {{ item.total | currency }}
+              </li>
+              <li class="list-group-item">
+                Fecha: {{ item.createAt | date }}
+              </li>
+            </ul>
+            <div class="btn btn-success m-2">Enviar por WhatsApp</div>
+            <div class="btn btn-warning m-2 mt-0">Enviar por Correo</div>
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  

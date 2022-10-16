@@ -3,6 +3,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ClienteEsperaService } from '../services/cliente-espera.service';
 import { PresupuestosPendientesService } from '../services/presupuestos-pendientes.service';
 import Swal from 'sweetalert2';
+import { FirebaseService } from '../services/firebase.service';
+import { DataService } from '../services/data.service';
 @Component({
   selector: 'app-logistica',
   templateUrl: './logistica.component.html',
@@ -13,7 +15,9 @@ export class LogisticaComponent implements OnInit {
   constructor(
     private _clientesEspera: ClienteEsperaService,
     private _presupuestosPendientes: PresupuestosPendientesService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private _firebase:FirebaseService,
+    private _data:DataService
   ) {}
 
   ngOnInit(): void {
@@ -22,6 +26,9 @@ export class LogisticaComponent implements OnInit {
 
   public async loadClientesEspera(): Promise<void> {
     this.clientesEnEspera = await this._clientesEspera.getClientesEspera();
+    /*this._data.getClientesEnEspera().forEach(async cliente=>{
+      await this._firebase.addDocument('clientes_en_espera',cliente)
+    })*/
   }
 
   public async setPresupuesto(clienteEspera: any): Promise<void> {

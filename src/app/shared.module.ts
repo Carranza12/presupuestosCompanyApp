@@ -22,6 +22,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { EditProfileComponent } from './components/modals/edit-profile/edit-profile.component';
 import {MatIconModule} from '@angular/material/icon';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatTableModule,
     MatAutocompleteModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule
 
   ],
   exports:[
@@ -68,7 +70,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatListModule,
     MatTableModule,
     AddClientComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    MatExpansionModule
   ],
   providers:[
     MatDialogModule,

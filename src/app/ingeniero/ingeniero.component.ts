@@ -25,7 +25,7 @@ export class IngenieroComponent implements OnInit {
 
   public OpenNewPresupuesto(cliente:any):void{
     const dialogRef = this.dialog.open(AddPresupuestoComponent, {
-      height: 'auto',
+      height: '700px',
       width: '700px',
       data:cliente
     });
