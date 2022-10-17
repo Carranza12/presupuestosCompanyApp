@@ -15,27 +15,27 @@
       <div class="option-text">Clientes</div>
     </div>
     -->
-    <div class="option" *ngIf="mode=='logistica' || mode=='admin' " (click)="navigateByUrl('logistica')">
+    <div class="option" *ngIf="user.role==='logistica' || user.role==='admin' " (click)="navigateByUrl('logistica')">
       <img src="../../../assets/icons/user.svg" alt="presupuestos-icon" />
       <div class="option-text">Lista de espera</div>
     </div>
 
-    <div class="option" *ngIf="mode=='logistica' || mode=='admin' " (click)="navigateByUrl('logistica/presupuestos-aprobados')">
+    <div class="option" *ngIf="user.role==='logistica' || user.role==='admin' " (click)="navigateByUrl('logistica/presupuestos-aprobados')">
       <img src="../../../assets/icons/pie-chart.svg" alt="presupuestos-icon" />
       <div class="option-text">Presupuestos Aprobados</div>
     </div>
 
-    <div class="option" *ngIf="mode=='logistica' || mode=='admin'" (click)="navigateByUrl('logistica/presupuestos-aprobados')">
+    <div class="option" *ngIf="user.role==='logistica' || user.role==='admin'" (click)="navigateByUrl('logistica/presupuestos-aprobados')">
       <img src="../../../assets/icons/pie-chart.svg" alt="presupuestos-icon" />
       <div class="option-text">Presupuestos Enviados</div>
     </div>
 
-    <div class="option" *ngIf="mode=='ingeniero' || mode=='admin'" (click)="navigateByUrl('ingeniero')">
+    <div class="option" *ngIf="user.role==='ingeniero' || user.role==='admin'" (click)="navigateByUrl('ingeniero')">
       <img src="../../../assets/icons/pie-chart.svg" alt="presupuestos-icon" />
       <div class="option-text">Presupuestos pendientes</div>
     </div>
 
-    <div class="option" *ngIf="mode=='ingeniero' || mode=='admin'" (click)="navigateByUrl('ingeniero/presupuestos-cotizados')">
+    <div class="option" *ngIf="user.role==='ingeniero' || user.role==='admin'" (click)="navigateByUrl('ingeniero/presupuestos-cotizados')">
       <img src="../../../assets/icons/pie-chart.svg" alt="presupuestos-icon" />
       <div class="option-text">Presupuestos Cotizados</div>
     </div>
