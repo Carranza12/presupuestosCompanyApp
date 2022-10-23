@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'web', loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule) },
   { path: 'logistica', loadChildren: () => import('./logistica/logistica.module').then(m => m.LogisticaModule), canActivate:[LogisticaGuard]},
   { path: 'ingeniero', loadChildren: () => import('./ingeniero/ingeniero.module').then(m => m.IngenieroModule), canActivate:[IngenieroGuard] },
+  { path: 'cliente/details/:id', loadChildren: () => import('./details-presupuesto/details-presupuesto.module').then(m => m.DetailsPresupuestoModule) },
   {path:'**', redirectTo:'auth'}
 ];
 

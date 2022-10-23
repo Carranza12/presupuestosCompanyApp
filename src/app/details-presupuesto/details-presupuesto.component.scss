@@ -1,0 +1,28 @@
+.nuup-image-23 {
+    height: 28px;
+  }
+  
+  .table {
+    width: 1200px;
+    padding: 0 20px;
+  }
+  
+  #pdf {
+    position: absolute;
+    right: 100%;
+  }
+  
+  .logo-nupp {
+    max-width: 130px;
+    height: 21px;
+    width: 100%;
+  }
+
+  .content{
+    margin: 15px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: calc(100vh - 145px);
+  }

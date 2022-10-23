@@ -30,8 +30,9 @@
                 Fecha: {{ item.createAt | date }}
               </li>
             </ul>
-            <div class="btn btn-success m-2">Enviar por WhatsApp</div>
-            <div class="btn btn-warning m-2 mt-0">Enviar por Correo</div>
+    
+            <div class="btn btn-success m-2" (click)="sendWhatsapp(item.id,item.phone)" >Enviar por WhatsApp</div>
+            <div class="btn btn-warning m-2 mt-0" (click)="sendMail(item.id,item.email)">Enviar por Correo</div>
           </div>
           </div>
         </div>

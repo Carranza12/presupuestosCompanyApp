@@ -25,10 +25,10 @@
       <div class="option-text">Presupuestos Aprobados</div>
     </div>
 
-    <div class="option" *ngIf="user.role==='logistica' || user.role==='admin'" (click)="navigateByUrl('logistica/presupuestos-aprobados')">
+    <!--<div class="option" *ngIf="user.role==='logistica' || user.role==='admin'" (click)="navigateByUrl('logistica/presupuestos-aprobados')">
       <img src="../../../assets/icons/pie-chart.svg" alt="presupuestos-icon" />
       <div class="option-text">Presupuestos Enviados</div>
-    </div>
+    </div>-->
 
     <div class="option" *ngIf="user.role==='ingeniero' || user.role==='admin'" (click)="navigateByUrl('ingeniero')">
       <img src="../../../assets/icons/pie-chart.svg" alt="presupuestos-icon" />
